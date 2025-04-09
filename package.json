@@ -3,14 +3,22 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "dead-server --host=localhost --port=5408",
+    "dev": "dead-server --host=localhost --port=7987",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "dead-server": "^1.0.9"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Agnius1/54-grupe-dom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Agnius1/54-grupe-dom/issues"
+  },
+  "homepage": "https://github.com/Agnius1/54-grupe-dom#readme",
+  "description": ""
 }
