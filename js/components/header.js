@@ -1,31 +1,38 @@
 export function header() {
-  const menu = [
-    { text: "Home", href: "/54-grupe-dom/" },
-    { text: "Text", href: "/54-grupe-dom/text" },
-    { text: "Food", href: "/54-grupe-dom/food" },
-    { text: "Darzas", href: "/54-grupe-dom/darzas" },
-    { text: "Header", href: "/54-grupe-dom/header" },
-    { text: "Click", href: "/54-grupe-dom/click" },
-  ];
+    let base = 'http://localhost:5408/';
+    let projectName = '';
+    if (location.hostname !== 'localhost') {
+        projectName = '/54-grupe-dom';
+        base = 'https://front-end-by-rimantas.github.io/54-grupe-dom/';
+    }
+    document.head.insertAdjacentHTML('afterbegin', `<base href="${base}">`);
 
-  const lp = location.pathname;
-  const currentPage = lp.length > 1 && lp.at(-1) === "/" ? lp.slice(0, -1) : lp;
-  let linksHTML = "";
+    const menu = [
+        { text: 'Home', href: '/' },
+        { text: 'Text', href: '/text/' },
+        { text: 'Food', href: '/food/' },
+        { text: 'Darzas', href: '/darzas/' },
+        { text: 'Header', href: '/header/' },
+        { text: 'Click', href: '/click/' },
+        { text: 'Like', href: '/like/' },
+    ];
 
-  for (const link of menu) {
-    let activePage = "";
-    if (link.href === currentPage) {
-      activePage = "active";
+    let linksHTML = '';
+
+    for (const link of menu) {
+        let activePage = '';
+        if (projectName + link.href === location.pathname) {
+            activePage = 'active';
+        }
+
+        linksHTML += `<a class="link ${activePage}" href=".${link.href}">${link.text}</a>`;
     }
 
-    linksHTML += `<a class="link ${activePage}" href="${link.href}">${link.text}</a>`;
-  }
-
-  const HTML = `
+    const HTML = `
         <header class="main-header">
-            <img class="logo" src="/54-grupe-dom/food/pizza.png" alt="Logo">
+            <img class="logo" src="./img/logo.png" alt="Logo">
             <nav class="main-nav">${linksHTML}</nav>
         </header>`;
 
-  document.body.insertAdjacentHTML("afterbegin", HTML);
+    document.body.insertAdjacentHTML('afterbegin', HTML);
 }
